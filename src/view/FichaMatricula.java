@@ -6,347 +6,667 @@ import javax.swing.border.LineBorder;
 
 public class FichaMatricula extends JFrame {
 
-   public FichaMatricula() {
+    private JTextField txtId;
 
-    setTitle("Ficha de Matrícula");
-    setSize(900, 900);
-    setLocationRelativeTo(null);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    private JTextField txtNome;
+    private JTextField txtNomeSocial;
+    private JTextField txtCpf;
+    private JTextField txtGenero;
+    private JTextField txtAfro;
+    private JTextField txtEscolaridade;
+    private JTextField txtData;
+    private JTextField txtLocal;
+    private JTextField txtNacionalidade;
+    private JTextField txtPais;
+    private JTextField txtFiliacao1;
+    private JTextField txtFiliacao2;
+    private JTextField txtResponsavel;
+    private JTextField txtParentesco;
+    private JTextField txtHabilitacao;
+    private JTextField txtSerie;
+    private JTextField txtPeriodo;
 
-    JPanel painelPrincipal = new JPanel();
-    painelPrincipal.setLayout(null);
-    painelPrincipal.setBackground(Color.WHITE);
+    private JTextField txtRua;
+    private JTextField txtBairro;
+    private JTextField txtComplemento;
+    private JTextField txtApto;
+    private JTextField txtBloco;
+    private JTextField txtCidade;
+    private JTextField txtCep;
+    private JTextField txtEmail;
 
+    private JTextField txtAssinatura;
 
-    JLabel tituloTopo = new JLabel("FICHA DE MATRÍCULA");
-    tituloTopo.setFont(new Font("Arial", Font.BOLD, 18));
-    tituloTopo.setBounds(320, 20, 300, 30);
+    private JTable tabelaAlunos;
 
-    painelPrincipal.add(tituloTopo);
+    public FichaMatricula() {
 
+        setTitle("Ficha de Matrícula");
 
-    JPanel painelDados = new JPanel(null);
+        setSize(950, 950);
 
-    painelDados.setBorder(
-        BorderFactory.createTitledBorder(
-            new LineBorder(Color.GRAY),
-            "FICHA DE MATRÍCULA"
-        )
-    );
+        setLocationRelativeTo(null);
 
-    painelDados.setBounds(40, 70, 800, 410);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        JPanel painelPrincipal = new JPanel();
 
+        painelPrincipal.setLayout(null);
 
-    JLabel lblNome = new JLabel("Nome:");
-    lblNome.setBounds(10, 30, 100, 25);
+        painelPrincipal.setBackground(Color.WHITE);
 
-    JTextField txtNome = new JTextField();
-    txtNome.setBounds(60, 30, 720, 25);
+        txtId = new JTextField();
 
+        txtId.setVisible(false);
 
+        painelPrincipal.add(txtId);
 
-    JLabel lblNomeSocial = new JLabel("Nome Social:");
-    lblNomeSocial.setBounds(10, 65, 100, 25);
+        JLabel tituloTopo =
+            new JLabel("FICHA DE MATRÍCULA");
 
-    JTextField txtNomeSocial = new JTextField();
-    txtNomeSocial.setBounds(100, 65, 680, 25);
+        tituloTopo.setFont(
+            new Font("Arial", Font.BOLD, 18)
+        );
 
+        tituloTopo.setBounds(320, 20, 300, 30);
 
-JLabel lblCpf = new JLabel("CPF:");
-lblCpf.setBounds(10, 100, 40, 25);
+        painelPrincipal.add(tituloTopo);
 
-JTextField txtCpf = new JTextField();
-txtCpf.setBounds(50, 100, 120, 25);
+        JPanel painelDados = new JPanel(null);
 
+        painelDados.setBorder(
+            BorderFactory.createTitledBorder(
+                new LineBorder(Color.GRAY),
+                "FICHA DE MATRÍCULA"
+            )
+        );
 
+        painelDados.setBounds(40, 70, 850, 410);
 
-JLabel lblGenero = new JLabel("Gênero:");
-lblGenero.setBounds(190, 100, 60, 25);
+        JLabel lblNome = new JLabel("Nome:");
 
-JTextField txtGenero = new JTextField();
-txtGenero.setBounds(250, 100, 80, 25);
+        lblNome.setBounds(10, 30, 100, 25);
 
+        txtNome = new JTextField();
 
+        txtNome.setBounds(60, 30, 770, 25);
 
-JLabel lblAfro = new JLabel("Afrodescendente:");
-lblAfro.setBounds(350, 100, 120, 25);
+        JLabel lblNomeSocial =
+            new JLabel("Nome Social:");
 
-JTextField txtAfro = new JTextField();
-txtAfro.setBounds(470, 100, 70, 25);
+        lblNomeSocial.setBounds(10, 65, 100, 25);
 
+        txtNomeSocial = new JTextField();
 
+        txtNomeSocial.setBounds(100, 65, 730, 25);
 
-JLabel lblEscolaridade = new JLabel("Escolaridade pública:");
-lblEscolaridade.setBounds(560, 100, 130, 25);
+    
+        JLabel lblCpf = new JLabel("CPF:");
 
-JTextField txtEscolaridade = new JTextField();
-txtEscolaridade.setBounds(690, 100, 90, 25);
+        lblCpf.setBounds(10, 100, 40, 25);
 
+        txtCpf = new JTextField();
 
+        txtCpf.setBounds(50, 100, 120, 25);
 
-    JLabel lblData = new JLabel("Data de nascimento:");
-    lblData.setBounds(10, 140, 140, 25);
+        JLabel lblGenero =
+            new JLabel("Gênero:");
 
-    JTextField txtData = new JTextField();
-    txtData.setBounds(150, 140, 150, 25);
+        lblGenero.setBounds(190, 100, 60, 25);
 
+        txtGenero = new JTextField();
 
+        txtGenero.setBounds(250, 100, 80, 25);
 
-    JLabel lblLocal = new JLabel("Local de Nascimento:");
-    lblLocal.setBounds(320, 140, 150, 25);
+        JLabel lblAfro =
+            new JLabel("Afrodescendente:");
 
-    JTextField txtLocal = new JTextField();
-    txtLocal.setBounds(470, 140, 150, 25);
+        lblAfro.setBounds(350, 100, 120, 25);
+
+        txtAfro = new JTextField();
+
+        txtAfro.setBounds(470, 100, 70, 25);
+
+        JLabel lblEscolaridade =
+            new JLabel("Escolaridade pública:");
+
+        lblEscolaridade.setBounds(
+            560,
+            100,
+            130,
+            25
+        );
+
+        txtEscolaridade = new JTextField();
+
+        txtEscolaridade.setBounds(
+            690,
+            100,
+            140,
+            25
+        );
+       
+        JLabel lblData =
+            new JLabel("Data nascimento:");
+
+        lblData.setBounds(10, 140, 140, 25);
+
+        txtData = new JTextField();
+
+        txtData.setBounds(150, 140, 150, 25);
 
   
 
-    JLabel lblNacionalidade = new JLabel("Nacionalidade:");
-    lblNacionalidade.setBounds(10, 180, 120, 25);
+        JLabel lblLocal =
+            new JLabel("Local Nascimento:");
 
-    JTextField txtNacionalidade = new JTextField();
-    txtNacionalidade.setBounds(120, 180, 180, 25);
+        lblLocal.setBounds(320, 140, 140, 25);
 
-    JLabel lblPais = new JLabel("País de Origem:");
-    lblPais.setBounds(320, 180, 120, 25);
+        txtLocal = new JTextField();
 
-    JTextField txtPais = new JTextField();
-    txtPais.setBounds(430, 180, 180, 25);
+        txtLocal.setBounds(460, 140, 180, 25);
 
+    
+        JLabel lblNacionalidade =
+            new JLabel("Nacionalidade:");
 
+        lblNacionalidade.setBounds(
+            10,
+            180,
+            100,
+            25
+        );
 
-    JLabel lblFiliacao1 = new JLabel("Filiação 1:");
-    lblFiliacao1.setBounds(10, 220, 100, 25);
+        txtNacionalidade = new JTextField();
 
-    JTextField txtFiliacao1 = new JTextField();
-    txtFiliacao1.setBounds(90, 220, 690, 25);
+        txtNacionalidade.setBounds(
+            120,
+            180,
+            180,
+            25
+        );
 
+        JLabel lblPais =
+            new JLabel("País Origem:");
 
+        lblPais.setBounds(320, 180, 100, 25);
 
-    JLabel lblFiliacao2 = new JLabel("Filiação 2:");
-    lblFiliacao2.setBounds(10, 255, 100, 25);
+        txtPais = new JTextField();
 
-    JTextField txtFiliacao2 = new JTextField();
-    txtFiliacao2.setBounds(90, 255, 690, 25);
+        txtPais.setBounds(430, 180, 180, 25);
 
+        JLabel lblFiliacao1 =
+            new JLabel("Filiação 1:");
 
+        lblFiliacao1.setBounds(10, 220, 100, 25);
 
-    JLabel lblResponsavel = new JLabel("Responsável Legal:");
-    lblResponsavel.setBounds(10, 290, 130, 25);
+        txtFiliacao1 = new JTextField();
 
-    JTextField txtResponsavel = new JTextField();
-    txtResponsavel.setBounds(140, 290, 350, 25);
+        txtFiliacao1.setBounds(
+            90,
+            220,
+            740,
+            25
+        );
 
-    JLabel lblParentesco = new JLabel("Grau de Parentesco:");
-    lblParentesco.setBounds(510, 290, 140, 25);
+        JLabel lblFiliacao2 =
+            new JLabel("Filiação 2:");
 
-    JTextField txtParentesco = new JTextField();
-    txtParentesco.setBounds(650, 290, 130, 25);
+        lblFiliacao2.setBounds(10, 255, 100, 25);
 
+        txtFiliacao2 = new JTextField();
 
+        txtFiliacao2.setBounds(
+            90,
+            255,
+            740,
+            25
+        );
 
-    JLabel lblHabilitacao = new JLabel("Habilitação:");
-    lblHabilitacao.setBounds(10, 325, 100, 25);
+        
+        JLabel lblResponsavel =
+            new JLabel("Responsável:");
 
-    JTextField txtHabilitacao = new JTextField();
-    txtHabilitacao.setBounds(100, 325, 680, 25);
+        lblResponsavel.setBounds(
+            10,
+            290,
+            100,
+            25
+        );
 
+        txtResponsavel = new JTextField();
 
+        txtResponsavel.setBounds(
+            110,
+            290,
+            300,
+            25
+        );
 
-    JLabel lblSerie = new JLabel("Série/Módulo:");
-    lblSerie.setBounds(10, 360, 100, 25);
+        JLabel lblParentesco =
+            new JLabel("Parentesco:");
 
-    JTextField txtSerie = new JTextField();
-    txtSerie.setBounds(110, 360, 300, 25);
+        lblParentesco.setBounds(
+            430,
+            290,
+            100,
+            25
+        );
 
+        txtParentesco = new JTextField();
 
-    JLabel lblPeriodo = new JLabel("Período:");
-    lblPeriodo.setBounds(430, 360, 70, 25);
+        txtParentesco.setBounds(
+            530,
+            290,
+            180,
+            25
+        );
 
-    JTextField txtPeriodo = new JTextField();
-    txtPeriodo.setBounds(500, 360, 280, 25);
+       
+        JLabel lblHabilitacao =
+            new JLabel("Habilitação:");
 
+        lblHabilitacao.setBounds(
+            10,
+            325,
+            100,
+            25
+        );
 
-    painelDados.add(lblNome);
-    painelDados.add(txtNome);
+        txtHabilitacao = new JTextField();
 
-    painelDados.add(lblNomeSocial);
-    painelDados.add(txtNomeSocial);
+        txtHabilitacao.setBounds(
+            100,
+            325,
+            730,
+            25
+        );
 
-    painelDados.add(lblCpf);
-    painelDados.add(txtCpf);
+        JLabel lblSerie =
+            new JLabel("Série/Módulo:");
 
-    painelDados.add(lblGenero);
-    painelDados.add(txtGenero);
+        lblSerie.setBounds(10, 360, 100, 25);
 
-    painelDados.add(lblAfro);
-    painelDados.add(txtAfro);
+        txtSerie = new JTextField();
 
-    painelDados.add(lblEscolaridade);
-    painelDados.add(txtEscolaridade);
+        txtSerie.setBounds(110, 360, 250, 25);
 
-    painelDados.add(lblData);
-    painelDados.add(txtData);
+        JLabel lblPeriodo =
+            new JLabel("Período:");
 
-    painelDados.add(lblLocal);
-    painelDados.add(txtLocal);
+        lblPeriodo.setBounds(390, 360, 70, 25);
 
-    painelDados.add(lblNacionalidade);
-    painelDados.add(txtNacionalidade);
+        txtPeriodo = new JTextField();
 
-    painelDados.add(lblPais);
-    painelDados.add(txtPais);
+        txtPeriodo.setBounds(460, 360, 200, 25);
 
-    painelDados.add(lblFiliacao1);
-    painelDados.add(txtFiliacao1);
+      
+        painelDados.add(lblNome);
+        painelDados.add(txtNome);
 
-    painelDados.add(lblFiliacao2);
-    painelDados.add(txtFiliacao2);
+        painelDados.add(lblNomeSocial);
+        painelDados.add(txtNomeSocial);
 
-    painelDados.add(lblResponsavel);
-    painelDados.add(txtResponsavel);
+        painelDados.add(lblCpf);
+        painelDados.add(txtCpf);
 
-    painelDados.add(lblParentesco);
-    painelDados.add(txtParentesco);
+        painelDados.add(lblGenero);
+        painelDados.add(txtGenero);
 
-    painelDados.add(lblHabilitacao);
-    painelDados.add(txtHabilitacao);
+        painelDados.add(lblAfro);
+        painelDados.add(txtAfro);
 
-    painelDados.add(lblSerie);
-    painelDados.add(txtSerie);
+        painelDados.add(lblEscolaridade);
+        painelDados.add(txtEscolaridade);
 
-    painelDados.add(lblPeriodo);
-    painelDados.add(txtPeriodo);
+        painelDados.add(lblData);
+        painelDados.add(txtData);
 
+        painelDados.add(lblLocal);
+        painelDados.add(txtLocal);
 
-    JPanel painelEndereco = new JPanel(null);
+        painelDados.add(lblNacionalidade);
+        painelDados.add(txtNacionalidade);
 
-    painelEndereco.setBorder(
-        BorderFactory.createTitledBorder(
-            new LineBorder(Color.GRAY),
-            "ENDEREÇO"
-        )
-    );
+        painelDados.add(lblPais);
+        painelDados.add(txtPais);
 
-    painelEndereco.setBounds(40, 500, 800, 210);
+        painelDados.add(lblFiliacao1);
+        painelDados.add(txtFiliacao1);
 
-    JLabel lblRua = new JLabel("Rua/Avenida:");
-    lblRua.setBounds(10, 30, 100, 25);
+        painelDados.add(lblFiliacao2);
+        painelDados.add(txtFiliacao2);
 
-    JTextField txtRua = new JTextField();
-    txtRua.setBounds(110, 30, 500, 25);
+        painelDados.add(lblResponsavel);
+        painelDados.add(txtResponsavel);
 
-    JLabel lblBairro = new JLabel("Bairro:");
-    lblBairro.setBounds(620, 30, 60, 25);
+        painelDados.add(lblParentesco);
+        painelDados.add(txtParentesco);
 
-    JTextField txtBairro = new JTextField();
-    txtBairro.setBounds(680, 30, 100, 25);
+        painelDados.add(lblHabilitacao);
+        painelDados.add(txtHabilitacao);
 
-    JLabel lblComplemento = new JLabel("Complemento:");
-    lblComplemento.setBounds(10, 70, 100, 25);
+        painelDados.add(lblSerie);
+        painelDados.add(txtSerie);
 
-    JTextField txtComplemento = new JTextField();
-    txtComplemento.setBounds(110, 70, 160, 25);
+        painelDados.add(lblPeriodo);
+        painelDados.add(txtPeriodo);
 
-    JLabel lblApto = new JLabel("Apto:");
-    lblApto.setBounds(290, 70, 40, 25);
+       
+        JPanel painelEndereco = new JPanel(null);
 
-    JTextField txtApto = new JTextField();
-    txtApto.setBounds(330, 70, 100, 25);
+        painelEndereco.setBorder(
+            BorderFactory.createTitledBorder(
+                new LineBorder(Color.GRAY),
+                "ENDEREÇO"
+            )
+        );
 
-    JLabel lblBloco = new JLabel("Bloco:");
-    lblBloco.setBounds(450, 70, 50, 25);
+        painelEndereco.setBounds(
+            40,
+            500,
+            850,
+            210
+        );
 
-    JTextField txtBloco = new JTextField();
-    txtBloco.setBounds(500, 70, 100, 25);
+        JLabel lblRua =
+            new JLabel("Rua/Avenida:");
 
-    JLabel lblCidade = new JLabel("Cidade:");
-    lblCidade.setBounds(10, 105, 60, 25);
+        lblRua.setBounds(10, 30, 100, 25);
 
-    JTextField txtCidade = new JTextField();
-    txtCidade.setBounds(70, 105, 300, 25);
+        txtRua = new JTextField();
 
-    JLabel lblCep = new JLabel("CEP:");
-    lblCep.setBounds(390, 105, 40, 25);
+        txtRua.setBounds(110, 30, 500, 25);
 
-    JTextField txtCep = new JTextField();
-    txtCep.setBounds(430, 105, 150, 25);
+        JLabel lblBairro =
+            new JLabel("Bairro:");
 
-    JLabel lblEmail = new JLabel("E-mail:");
-    lblEmail.setBounds(10, 140, 60, 25);
+        lblBairro.setBounds(620, 30, 60, 25);
 
-    JTextField txtEmail = new JTextField();
-    txtEmail.setBounds(70, 140, 710, 25);
+        txtBairro = new JTextField();
 
-    painelEndereco.add(lblRua);
-    painelEndereco.add(txtRua);
+        txtBairro.setBounds(680, 30, 150, 25);
 
-    painelEndereco.add(lblBairro);
-    painelEndereco.add(txtBairro);
+        JLabel lblComplemento =
+            new JLabel("Complemento:");
 
-    painelEndereco.add(lblComplemento);
-    painelEndereco.add(txtComplemento);
+        lblComplemento.setBounds(
+            10,
+            70,
+            100,
+            25
+        );
 
-    painelEndereco.add(lblApto);
-    painelEndereco.add(txtApto);
+        txtComplemento = new JTextField();
 
-    painelEndereco.add(lblBloco);
-    painelEndereco.add(txtBloco);
+        txtComplemento.setBounds(
+            110,
+            70,
+            160,
+            25
+        );
 
-    painelEndereco.add(lblCidade);
-    painelEndereco.add(txtCidade);
+        JLabel lblApto = new JLabel("Apto:");
 
-    painelEndereco.add(lblCep);
-    painelEndereco.add(txtCep);
+        lblApto.setBounds(290, 70, 40, 25);
 
-    painelEndereco.add(lblEmail);
-    painelEndereco.add(txtEmail);
+        txtApto = new JTextField();
 
+        txtApto.setBounds(330, 70, 100, 25);
 
+        JLabel lblBloco =
+            new JLabel("Bloco:");
 
-   JLabel lblAssinatura = new JLabel("Assinatura do Aluno ou Responsável:");
-lblAssinatura.setBounds(280, 720, 260, 25);
+        lblBloco.setBounds(450, 70, 50, 25);
 
-JTextField txtAssinatura = new JTextField();
-txtAssinatura.setBounds(180, 750, 462, 30);
+        txtBloco = new JTextField();
 
-JButton btnNovo = new JButton("Novo");
-btnNovo.setBounds(180, 790, 100, 35);
+        txtBloco.setBounds(500, 70, 100, 25);
 
-JButton btnSalvar = new JButton("Salvar");
-btnSalvar.setBounds(300, 790, 100, 35);
+        JLabel lblCidade =
+            new JLabel("Cidade:");
 
-JButton btnExcluir = new JButton("Excluir");
-btnExcluir.setBounds(420, 790, 100, 35);
+        lblCidade.setBounds(10, 105, 60, 25);
 
-JButton btnLimpar = new JButton("Limpar");
-btnLimpar.setBounds(540, 790, 100, 35);
+        txtCidade = new JTextField();
 
-painelPrincipal.add(btnNovo);
-painelPrincipal.add(btnSalvar);
-painelPrincipal.add(btnExcluir);
-painelPrincipal.add(btnLimpar);
+        txtCidade.setBounds(70, 105, 300, 25);
 
-painelPrincipal.add(lblAssinatura);
-painelPrincipal.add(txtAssinatura);
+        JLabel lblCep = new JLabel("CEP:");
 
+        lblCep.setBounds(390, 105, 40, 25);
 
+        txtCep = new JTextField();
 
-    painelPrincipal.add(painelDados);
-    painelPrincipal.add(painelEndereco);
+        txtCep.setBounds(430, 105, 150, 25);
 
-    add(painelPrincipal);
-}
+        JLabel lblEmail =
+            new JLabel("E-mail:");
+
+        lblEmail.setBounds(10, 140, 60, 25);
+
+        txtEmail = new JTextField();
+
+        txtEmail.setBounds(70, 140, 760, 25);
+
+        painelEndereco.add(lblRua);
+        painelEndereco.add(txtRua);
+
+        painelEndereco.add(lblBairro);
+        painelEndereco.add(txtBairro);
+
+        painelEndereco.add(lblComplemento);
+        painelEndereco.add(txtComplemento);
+
+        painelEndereco.add(lblApto);
+        painelEndereco.add(txtApto);
+
+        painelEndereco.add(lblBloco);
+        painelEndereco.add(txtBloco);
+
+        painelEndereco.add(lblCidade);
+        painelEndereco.add(txtCidade);
+
+        painelEndereco.add(lblCep);
+        painelEndereco.add(txtCep);
+
+        painelEndereco.add(lblEmail);
+        painelEndereco.add(txtEmail);
+
+        JLabel lblAssinatura =
+            new JLabel(
+                "Assinatura do Aluno:"
+            );
+
+        lblAssinatura.setBounds(
+            330,
+            720,
+            200,
+            25
+        );
+
+        txtAssinatura = new JTextField();
+
+        txtAssinatura.setBounds(
+            220,
+            750,
+            450,
+            30
+        );
+
+        JButton btnNovo =
+            new JButton("Novo");
+
+        btnNovo.setBounds(180, 800, 100, 35);
+
+        JButton btnSalvar =
+            new JButton("Salvar");
+
+        btnSalvar.setBounds(300, 800, 100, 35);
+
+        JButton btnExcluir =
+            new JButton("Excluir");
+
+        btnExcluir.setBounds(420, 800, 100, 35);
+
+        JButton btnLimpar =
+            new JButton("Limpar");
+
+        btnLimpar.setBounds(540, 800, 100, 35);
+
+
+
+        tabelaAlunos = new JTable();
+
+        tabelaAlunos.setModel(
+            new javax.swing.table.DefaultTableModel(
+                new Object[][] {},
+                new String[] {
+                    "ID",
+                    "Nome",
+                    "Email",
+                    "CPF"
+                }
+            )
+        );
+
+        JScrollPane scroll =
+            new JScrollPane(tabelaAlunos);
+
+        scroll.setBounds(40, 850, 850, 120);
+
+        painelPrincipal.add(painelDados);
+
+        painelPrincipal.add(painelEndereco);
+
+        painelPrincipal.add(lblAssinatura);
+
+        painelPrincipal.add(txtAssinatura);
+
+        painelPrincipal.add(btnNovo);
+
+        painelPrincipal.add(btnSalvar);
+
+        painelPrincipal.add(btnExcluir);
+
+        painelPrincipal.add(btnLimpar);
+
+        painelPrincipal.add(scroll);
+
+        add(painelPrincipal);
+    }
+
+ 
+    public JTextField getTxtId() {
+        return txtId;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtCpf() {
+        return txtCpf;
+    }
+
+    public JTextField getTxtGenero() {
+        return txtGenero;
+    }
+
+    public JTextField getTxtAfro() {
+        return txtAfro;
+    }
+
+    public JTextField getTxtEscolaridade() {
+        return txtEscolaridade;
+    }
+
+    public JTextField getTxtData() {
+        return txtData;
+    }
+
+    public JTextField getTxtLocal() {
+        return txtLocal;
+    }
+
+    public JTextField getTxtPais() {
+        return txtPais;
+    }
+
+    public JTextField getTxtFiliacao1() {
+        return txtFiliacao1;
+    }
+
+    public JTextField getTxtFiliacao2() {
+        return txtFiliacao2;
+    }
+
+    public JTextField getTxtResponsavel() {
+        return txtResponsavel;
+    }
+
+    public JTextField getTxtParentesco() {
+        return txtParentesco;
+    }
+
+    public JTextField getTxtHabilitacao() {
+        return txtHabilitacao;
+    }
+
+    public JTextField getTxtSerie() {
+        return txtSerie;
+    }
+
+    public JTextField getTxtPeriodo() {
+        return txtPeriodo;
+    }
+
+    public JTextField getTxtRua() {
+        return txtRua;
+    }
+
+    public JTextField getTxtBairro() {
+        return txtBairro;
+    }
+
+    public JTextField getTxtComplemento() {
+        return txtComplemento;
+    }
+
+    public JTextField getTxtApto() {
+        return txtApto;
+    }
+
+    public JTextField getTxtBloco() {
+        return txtBloco;
+    }
+
+    public JTextField getTxtCidade() {
+        return txtCidade;
+    }
+
+    public JTextField getTxtCep() {
+        return txtCep;
+    }
+
+    public JTextField getTxtAssinatura() {
+        return txtAssinatura;
+    }
+
+    public JTable getTabelaAlunos() {
+        return tabelaAlunos;
+    }
 
     public static void main(String[] args) {
 
-        SwingUtilities.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(() -> {
 
-            @Override
-            public void run() {
+            new FichaMatricula().setVisible(true);
 
-                new FichaMatricula().setVisible(true);
-            }
         });
     }
 }

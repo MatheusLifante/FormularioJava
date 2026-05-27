@@ -2,14 +2,14 @@ package app;
 
 import javax.swing.SwingUtilities;
 
-import view.TelaCliente;
+import view.FichaMatricula;
 
 public class Main {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                TelaCliente tela = new TelaCliente();
+                FichaMatricula tela = new FichaMatricula();
                 tela.setVisible(true);
             }
         });
