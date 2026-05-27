@@ -12,7 +12,6 @@ import view.FichaMatricula;
 public class AlunoController {
 
     private FichaMatricula tela;
-
     private AlunoDAO alunoDAO;
 
     public AlunoController(FichaMatricula tela) {
@@ -23,7 +22,6 @@ public class AlunoController {
 
         carregarTabela();
     }
-
 
     public void salvar() {
 
@@ -39,36 +37,36 @@ public class AlunoController {
                 tela.getTxtEmail().getText().trim()
             );
 
-            aluno.setCpf(
-                tela.getTxtCpf().getText().trim()
+            aluno.setEstuda_etec(
+                tela.getTxtEstudaEtec().getText().trim()
+            );
+
+            aluno.setEstuda_outra_etec(
+                tela.getTxtOutraEtec().getText().trim()
+            );
+
+            aluno.setJa_estudou_etec(
+                tela.getTxtJaEstudou().getText().trim()
+            );
+
+            aluno.setTerminou_ensmedio(
+                tela.getTxtEnsinoMedio().getText().trim()
+            );
+
+            aluno.setEscola(
+                tela.getTxtEscola().getText().trim()
             );
 
             aluno.setGenero(
                 tela.getTxtGenero().getText().trim()
             );
 
-            aluno.setAfrodescendente(
-                tela.getTxtAfro().getText().trim()
-            );
-
-            aluno.setEscol_public(
-                tela.getTxtEscolaridade().getText().trim()
-            );
-
-            aluno.setData_nasc(
+            aluno.setNascimento(
                 tela.getTxtData().getText().trim()
             );
 
             aluno.setLocal_nasc(
                 tela.getTxtLocal().getText().trim()
-            );
-
-            aluno.setNascimento(
-                tela.getTxtLocal().getText().trim()
-            );
-
-            aluno.setPais_origem(
-                tela.getTxtPais().getText().trim()
             );
 
             aluno.setFiliacao_1(
@@ -79,7 +77,43 @@ public class AlunoController {
                 tela.getTxtFiliacao2().getText().trim()
             );
 
-            aluno.setResponsavel_legal(
+            aluno.setHabilitacao(
+                tela.getTxtHabilitacao().getText().trim()
+            );
+
+            aluno.setAfrodescendente(
+                tela.getTxtAfro().getText().trim()
+            );
+
+            aluno.setEscol_publica(
+                tela.getTxtEscolaridade().getText().trim()
+            );
+
+            aluno.setPais_origem(
+                tela.getTxtPais().getText().trim()
+            );
+
+            aluno.setRua_avenida(
+                tela.getTxtRua().getText().trim()
+            );
+
+            aluno.setComplemento(
+                tela.getTxtComplemento().getText().trim()
+            );
+
+            aluno.setBairro(
+                tela.getTxtBairro().getText().trim()
+            );
+
+            aluno.setCidade(
+                tela.getTxtCidade().getText().trim()
+            );
+
+            aluno.setAssitatura_pai(
+                tela.getTxtAssinatura().getText().trim()
+            );
+
+            aluno.setReponsavel_legal(
                 tela.getTxtResponsavel().getText().trim()
             );
 
@@ -87,49 +121,72 @@ public class AlunoController {
                 tela.getTxtParentesco().getText().trim()
             );
 
-            aluno.setHabilitacao(
-                tela.getTxtHabilitacao().getText().trim()
-            );
-
-            aluno.setSerie_modulo(
-                tela.getTxtSerie().getText().trim()
-            );
-
             aluno.setPeriodo(
                 tela.getTxtPeriodo().getText().trim()
             );
 
-            aluno.setRua_avenida(
-                tela.getTxtRua().getText().trim()
-            );
+            if (!tela.getTxtCpf().getText().trim().isEmpty()) {
 
-            aluno.setBairro(
-                tela.getTxtBairro().getText().trim()
-            );
+                aluno.setCpf(
+                    Integer.parseInt(
+                        tela.getTxtCpf().getText().trim()
+                    )
+                );
+            }
 
-            aluno.setComplemento(
-                tela.getTxtComplemento().getText().trim()
-            );
+            if (!tela.getTxtCep().getText().trim().isEmpty()) {
 
-            aluno.setApt(
-                tela.getTxtApto().getText().trim()
-            );
+                aluno.setCep(
+                    Integer.parseInt(
+                        tela.getTxtCep().getText().trim()
+                    )
+                );
+            }
 
-            aluno.setBloco(
-                tela.getTxtBloco().getText().trim()
-            );
+            if (!tela.getTxtTelefone().getText().trim().isEmpty()) {
 
-            aluno.setCidade(
-                tela.getTxtCidade().getText().trim()
-            );
+                aluno.setTelefone(
+                    Integer.parseInt(
+                        tela.getTxtTelefone().getText().trim()
+                    )
+                );
+            }
 
-            aluno.setCep(
-                tela.getTxtCep().getText().trim()
-            );
+            if (!tela.getTxtCelular().getText().trim().isEmpty()) {
 
-            aluno.setAssinatura_pai(
-                tela.getTxtAssinatura().getText().trim()
-            );
+                aluno.seTtlf_celular(
+                    Integer.parseInt(
+                        tela.getTxtCelular().getText().trim()
+                    )
+                );
+            }
+
+            if (!tela.getTxtApto().getText().trim().isEmpty()) {
+
+                aluno.setApt(
+                    Integer.parseInt(
+                        tela.getTxtApto().getText().trim()
+                    )
+                );
+            }
+
+            if (!tela.getTxtBloco().getText().trim().isEmpty()) {
+
+                aluno.setBloco(
+                    Integer.parseInt(
+                        tela.getTxtBloco().getText().trim()
+                    )
+                );
+            }
+
+            if (!tela.getTxtSerie().getText().trim().isEmpty()) {
+
+                aluno.setSerie_modulo(
+                    Integer.parseInt(
+                        tela.getTxtSerie().getText().trim()
+                    )
+                );
+            }
 
             String idTexto =
                 tela.getTxtId().getText().trim();
@@ -142,8 +199,8 @@ public class AlunoController {
                     tela,
                     "Aluno salvo com sucesso."
                 );
-
-            } else {
+            }
+            else {
 
                 aluno.setId(
                     Integer.parseInt(idTexto)
@@ -160,8 +217,9 @@ public class AlunoController {
             limpar();
 
             carregarTabela();
+        }
 
-        } catch (Exception e) {
+        catch (Exception e) {
 
             JOptionPane.showMessageDialog(
                 tela,
@@ -171,8 +229,6 @@ public class AlunoController {
             );
         }
     }
-
-
 
     public void excluir() {
 
@@ -191,24 +247,12 @@ public class AlunoController {
             return;
         }
 
-        int confirmacao =
-            JOptionPane.showConfirmDialog(
-                tela,
-                "Deseja realmente excluir?",
-                "Confirmação",
-                JOptionPane.YES_NO_OPTION
-            );
-
-        if (confirmacao != JOptionPane.YES_OPTION) {
-
-            return;
-        }
-
         try {
 
-            int id = Integer.parseInt(
-                tela.getTxtId().getText()
-            );
+            int id =
+                Integer.parseInt(
+                    tela.getTxtId().getText()
+                );
 
             alunoDAO.excluir(id);
 
@@ -220,8 +264,9 @@ public class AlunoController {
             limpar();
 
             carregarTabela();
+        }
 
-        } catch (Exception e) {
+        catch (Exception e) {
 
             JOptionPane.showMessageDialog(
                 tela,
@@ -231,7 +276,6 @@ public class AlunoController {
             );
         }
     }
-
 
     public void limpar() {
 
@@ -245,11 +289,10 @@ public class AlunoController {
 
         tela.getTxtGenero().setText("");
 
+        tela.getTxtData().setText("");
+
         tela.getTabelaAlunos().clearSelection();
-
-        tela.getTxtNome().requestFocus();
     }
-
 
     public void carregarTabela() {
 
@@ -261,23 +304,23 @@ public class AlunoController {
 
         try {
 
-            List<Aluno> alunos =
+            List<Aluno> lista =
                 alunoDAO.listar();
 
-            for (Aluno a : alunos) {
+            for (Aluno a : lista) {
 
                 modelo.addRow(
                     new Object[] {
 
                         a.getId(),
                         a.getNome(),
-                        a.getEmail(),
-                        a.getCpf()
+                        a.getEmail()
                     }
                 );
             }
+        }
 
-        } catch (Exception e) {
+        catch (Exception e) {
 
             JOptionPane.showMessageDialog(
                 tela,
@@ -311,12 +354,6 @@ public class AlunoController {
             tela.getTxtEmail().setText(
                 tela.getTabelaAlunos()
                     .getValueAt(linha, 2)
-                    .toString()
-            );
-
-            tela.getTxtCpf().setText(
-                tela.getTabelaAlunos()
-                    .getValueAt(linha, 3)
                     .toString()
             );
         }
