@@ -20,6 +20,28 @@ public class AlunoController {
 
         this.alunoDAO = new AlunoDAO();
 
+        tela.getBtnSalvar().addActionListener(
+            e -> salvar()
+        );
+
+        tela.getBtnExcluir().addActionListener(
+            e -> excluir()
+        );
+
+        tela.getBtnLimpar().addActionListener(
+            e -> limpar()
+        );
+
+        tela.getBtnNovo().addActionListener(
+            e -> limpar()
+        );
+
+        tela.getTabelaAlunos()
+            .getSelectionModel()
+            .addListSelectionListener(
+                e -> preencherFormulario()
+            );
+
         carregarTabela();
     }
 
